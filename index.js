@@ -7,7 +7,7 @@ const logger = require('morgan');
 // const passport = require("passport")
 // const express_session = require("express-session")
 
-// const pool = require("./config/db/config/connection")
+const pool = require("./config/connection")
 
 // const express = require("express");
 // const app = express();

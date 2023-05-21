@@ -1,0 +1,38 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Nunito', sans-serif
+    // border: 1px solid white
+
+@mixin flex
+    display: flex
+    align-items: center
+    justify-content: center
+     
+header
+    height: 13vh
+    padding: 1rem 3rem
+
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    #icon
+
+        @include flex
+        height: 100%
+        width: 30%
+
+        img
+            width: 20%
+            height: 90%
+        h1
+            margin-left: .5rem
+            color: white
+            letter-spacing: 1px
+            font-size: 25px
+        span
+            color: #9fef00
+            margin: 0 .1rem

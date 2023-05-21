@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  height: 13vh;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .links {
+  border-radius: 2px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  background: #9fef00;
+  padding: 1rem;
+  border: none;
+  height: 80%;
+}
+header .links p {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+header #icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: left;
+  height: 100%;
+  width: 30%;
+}
+header #icon img {
+  width: 20%;
+  height: 90%;
+}
+header #icon h1 {
+  margin-left: 0.5rem;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 25px;
+}
+header #icon span {
+  color: #9fef00;
+  margin: 0 0.1rem;
+}/*# sourceMappingURL=nav.css.map */
