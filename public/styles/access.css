@@ -1,17 +1,92 @@
+.reg {
+  height: 70% !important;
+}
+.reg button, .reg input {
+  height: 15% !important;
+}
+
 #container {
-  border: 2px solid red;
   height: 87vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#container #form {
-  border: 2px solid red;
-  height: 50%;
-  width: 40%;
+#container form {
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  background: #1A2332;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 55%;
+  width: 35%;
+}
+#container form div {
+  width: 85%;
+  display: flex;
+  justify-content: left;
+}
+#container form input, #container form button {
+  border-radius: 4px;
+  width: 85%;
+  border: none;
+  height: 20%;
+  padding: 1rem;
+}
+#container form button {
+  text-decoration: none;
+  color: black;
+  background: #9fef00;
+  padding: 1rem;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+#container form input {
+  outline: none;
+  color: white;
+  background-color: #111927;
+}
+#container form input:hover {
+  border: 1px solid #9fef00;
+}
+#container form input::-moz-placeholder {
+  color: #a4b1cd;
+  font-size: 15px;
+}
+#container form input::placeholder {
+  color: #a4b1cd;
+  font-size: 15px;
+}
+#container form p {
+  font-size: 20px;
+  color: #ffffff;
 }
 #container #extra {
-  border: 2px solid red;
+  margin-top: 3rem;
+  background: #1A2332;
   height: 15%;
-  width: 40%;
+  width: 35%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#container #extra p {
+  font-size: 16px;
+  color: #ffffff;
+}
+#container #extra a {
+  border-radius: 4px;
+  border: 1px solid #a4b1cd;
+  text-decoration: none;
+  color: #a4b1cd;
+  padding: 0.8rem;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 1s;
+}
+#container #extra a:hover {
+  opacity: 0.6;
 }/*# sourceMappingURL=access.css.map */

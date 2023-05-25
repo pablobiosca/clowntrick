@@ -5,8 +5,19 @@
 
     </div>
 
-    <a href="/access" class="links">
-        <p>Acceder</p>
-    </a>
+    <% if (user) { %>
+        <div id="user">
+            <h3><%= user.nickname %></h3>
+            <a href="/logout">
+                <img src="/images/logout.png">
+            </a>
+        </div>
+    <% } else { %>
+
+        <a href="/access" class="links">
+            <p>Acceder</p>
+        </a>
+
+    <% } %>
     <!-- <button id="publicar">hola</button> -->
 </header>

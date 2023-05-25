@@ -3,9 +3,8 @@ const createError = require('http-errors');
 const path = require("path")
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-// const flash = require("connect-flash")
-// const passport = require("passport")
-// const express_session = require("express-session")
+const passport = require("passport")
+const express_session = require("express-session")
 
 const pool = require("./config/connection")
 
@@ -20,20 +19,17 @@ const pool = require("./config/connection")
 
 const {app,server,express} = require("./public/scripts/socket_server")
 
+const SQL_session = require("express-mysql-session")(express_session)
 
-// require("./public/scripts/socket_server.js")
+require("./config/passport_serialize")
 
-// const SQL_session = require("express-mysql-session")(express_session)
-
-// require("./config/users_passport/passport_serialize")
-
-// app.use(express_session({
-    //     key:"active_user",
-    //     secret: "jamrock",
-    //     store: new SQL_session({},pool),
-    //     resave: false,
-    //     saveUninitialized:false
-    // }))
+app.use(express_session({
+        key:"white_user",
+        secret: "welcometojamrock",
+        store: new SQL_session({},pool),
+        resave: false,
+        saveUninitialized:false
+}))
     
     
 //localizacion vistas
@@ -56,42 +52,18 @@ app.use(cookieParser());
 //archivos estaticos
 app.use(express.static(path.join(__dirname,"public")))
 
-    
-    
-    
-    
-    
-    
-    
-    
-    //inicializamos passport y usamos sesiones a traves de passport
-    // app.use(passport.initialize())
-    
-    // //controlamos la recuperacion de login
-    // app.use(passport.session())
-    
-    // app.use(flash())
-    
-    // app.use( (req,res,next) =>{
-        //     app.locals.success = req.flash("success")
-        //     app.locals.message = req.flash("message")
-        //     app.locals.user = req.user
-        //     next()
-        // })
-        
+// inicializamos passport y usamos sesiones a traves de passport
+app.use(passport.initialize())
 
-// io.on("connection",(socket) => {
-//     console.log("nueva conexion",socket.id)
+//controlamos la recuperacion de login
+app.use(passport.session())
 
-//     // socket.emit("server:loadnotes",notes)
 
-//     socket.emit("ping")
-
-//     socket.on("pong",()=>{
-//         console.log("pong recibido")
-//     })
-
-// })
+app.use( (req,res,next) =>{
+    app.locals.user = req.user
+    next()
+})
+    
 
 //rutas
 app.use(require("./routes/index.js"))
