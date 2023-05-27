@@ -54,16 +54,16 @@ passport.use("local.signin", new localstrategy({
 }, async (req,username,password,done) =>{
 
     console.log(username,password)
+
+    const [result] = await pool.query("select * from users where email = ?",[username])
     
-    const [result] = await pool.query("select * from users where mail = ?",[username])
-    
-    return done(null,result[0],req.flash("message","sesion iniciada"))
+    return done(null,result[0])
 
 }))
 
 passport.serializeUser((user,done)=>{
     console.log("serial")
-    done(null,user.id_user)
+    done(null,user.id)
 })
 
 passport.deserializeUser(async(id,done) =>{

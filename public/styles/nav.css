@@ -8,6 +8,7 @@
 header {
   height: 13vh;
   padding: 1rem 3rem;
+  border-bottom: 1px solid white;
   display: flex;
   justify-content: space-between;
   align-items: center;

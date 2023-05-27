@@ -20,14 +20,16 @@
     <%- include('./partials/navaccess') %>
 
     <section id="container">
-        <form action="/login" method="post">
+        <form>
             <div>
                 <p>Entra en tu cuenta</p>
             </div>
-            <input type="text" name="email" placeholder="E-mail">
-            <input type="password" name="password" placeholder="Constraseña">
+            <input id="email" type="text" name="email" placeholder="E-mail">
+            <input id="password" type="password" name="password" placeholder="Constraseña">
 
-            <button type="submit">Acceder</button>
+            <p id="text_fill"></p>
+
+            <button id="bt_login" type="button">Acceder</button>
         </form>
 
 
@@ -36,6 +38,6 @@
             <a href="/registro">Registrarme</a>
         </div>
     </section>
-
+    <script src="/scripts/validacion_login.js"></script>
 </body>
 </html>
