@@ -1,5 +1,4 @@
 #menu_hilos {
-  border: 2px solid white;
   background: #1a2332;
   height: 10vh;
   position: fixed;
@@ -18,7 +17,6 @@
   height: 100%;
   display: flex;
   color: white;
-  border: 2px solid red;
 }
 #menu_hilos #agregar_hilo p {
   margin-right: 1rem;
@@ -75,6 +73,7 @@
 
 #padre_hilos {
   background: #1a2332;
+  margin-top: 21vh;
   height: auto;
   width: 100%;
   display: flex;
@@ -85,7 +84,6 @@
   width: 80%;
 }
 #padre_hilos #container_hilos .hilo {
-  border: 1px solid white;
   color: white;
   width: 100%;
   display: flex;
@@ -102,7 +100,6 @@
   width: 20%;
 }
 #padre_hilos #container_hilos .hilo .user .hilo_titulo {
-  cursor: pointer;
   text-decoration: none;
   height: 100%;
   width: 80%;
@@ -112,6 +109,12 @@
   color: white;
   padding: 0 0.5rem;
   border-bottom: 1px solid #9fef00;
+}
+#padre_hilos #container_hilos .hilo .user .hilo_titulo .titulo_subrayado {
+  border-bottom: 1px solid #9fef00;
+}
+#padre_hilos #container_hilos .hilo .user .hilo_titulo .hilon {
+  background: rgba(159, 239, 0, 0.3058823529);
 }
 #padre_hilos #container_hilos .hilo .user .hilo_titulo div {
   background: #464F60;

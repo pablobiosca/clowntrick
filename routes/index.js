@@ -28,9 +28,9 @@ router.get("/hilo/:id",async(req,res) => {
     //vamos a updatear las visitas en +1 a este hilo
     await pool.query("update hilos set views = views +1 where id = ?",[id_hilo])
 
-    const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and h.id=?",[id_hilo])
+    const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,u.id as id_user,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and h.id=?",[id_hilo])
     
-    const [respuestas_hilo] = await pool.query("select u.nickname,u.mensajes,r.texto from users u inner join replys r on r.id_user = u.id inner join hilos h on r.id_hilo=h.id")
+    const [respuestas_hilo] = await pool.query("select u.nickname,u.mensajes,u.id,r.texto from users u inner join replys r on r.id_user = u.id inner join hilos h on r.id_hilo=h.id order by r.fecha_creacion desc")
 
     console.log(results)
     console.log(respuestas_hilo)
@@ -46,6 +46,22 @@ router.get("/responder/:id",(req,res) => {
     res.render("nueva_respuesta",{id:req.params.id})
 })
 
+router.post("/nueva_respuesta/:id",async(req,res) => {
+    console.log(req.params)
+
+await pool.query("update users set mensajes = mensajes + 1 where id = ?",[req.user.id])
+
+    let respuesta = {
+        texto:req.body.texto,
+        id_hilo:req.params.id,
+        id_user:req.user.id
+    }
+
+    await pool.query("insert into replys set ?",[respuesta])
+
+    res.redirect("/hilo/"+req.params.id)
+
+})
 
 //ruta para los hilos ordenados por recientes
 

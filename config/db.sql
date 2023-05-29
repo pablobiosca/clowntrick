@@ -22,6 +22,7 @@ create table replys (
     texto text,
     id_hilo int unsigned,
     id_user int unsigned,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     foreign key (id_hilo) references hilos(id),
     foreign key (id_user) references users(id)

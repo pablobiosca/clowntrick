@@ -24,12 +24,14 @@
         <section id="menu_hilos" style="height: 0vh;">
     <% } %>
     
-    <% if (user) { %>
-        <div id="agregar_hilo">
-            <p>Responder a este hilo</p>
-            <a href="/responder/<%=results[0].id%>">Responder</a>
-        </div>
-    <% } %>
+        <% if (user) { %>
+            <div id="agregar_hilo">
+                <p>Responder a este hilo</p>
+                <a href="/responder/<%=results[0].id%>">Responder</a>
+            </div>
+        <% } %>
+    </section>
+
 
     <% if (user) { %>
         <section id="padre_hilos">
@@ -42,14 +44,14 @@
 
                 <div class="hilo">
                     
-                    <div class="user">
+                    <div class="user" style="border-right: 1px solid #9fef00;">
                         <div class="user_info">
                             <p>@<%= results[hilo].nickname %> </p>
                             <p>Participaciones : <%= results[hilo].mensajes %></p>
                         </div>
                         <div class="hilo_titulo">
-                            <p><%= results[hilo].titulo %></p>
-                            <div>
+                            <p class="titulo_subrayado"><%= results[hilo].titulo %></p>
+                            <div class="hilon">
                                 <p><%= results[hilo].texto %></p>
                             </div>
                         </div>
@@ -57,6 +59,29 @@
     
                 </div>
 
+            <% } %>
+
+            <% for( let reply_index = 0; reply_index < respuestas_hilo.length; reply_index++ ) { %>
+                <div class="hilo">
+                    <div class="user">
+                        <div class="user_info">
+                            <p>@<%= respuestas_hilo[reply_index].nickname %> </p>
+                            <p>Participaciones : <%= respuestas_hilo[reply_index].mensajes %></p>
+                        </div>
+                        <div class="hilo_titulo">
+                            <% if (results[0].id_user == respuestas_hilo[reply_index].id) {%>
+                                <div class="hilon">
+                                    <p><%= respuestas_hilo[reply_index].texto %></p>
+                                </div>
+                            <% }else{ %>
+                                <div>
+                                    <p><%= respuestas_hilo[reply_index].texto %></p>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+    
+                </div>
             <% } %>
     
     
