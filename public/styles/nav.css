@@ -69,6 +69,7 @@ header .links p {
   letter-spacing: 0.3px;
 }
 header #icon {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;

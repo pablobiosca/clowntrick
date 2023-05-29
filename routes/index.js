@@ -20,6 +20,33 @@ router.get("/",async(req,res) => {
     res.render("main",{results})
 })
 
+//ruta para las respuestas a un hilo
+
+router.get("/hilo/:id",async(req,res) => {
+    let id_hilo = req.params.id
+
+    //vamos a updatear las visitas en +1 a este hilo
+    await pool.query("update hilos set views = views +1 where id = ?",[id_hilo])
+
+    const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and h.id=?",[id_hilo])
+    
+    const [respuestas_hilo] = await pool.query("select u.nickname,u.mensajes,r.texto from users u inner join replys r on r.id_user = u.id inner join hilos h on r.id_hilo=h.id")
+
+    console.log(results)
+    console.log(respuestas_hilo)
+
+    res.render("hilo",{results,respuestas_hilo})
+})
+
+//ruta para agregar una respuesta a hilo
+
+router.get("/responder/:id",(req,res) => {
+    console.log(req.params)
+
+    res.render("nueva_respuesta",{id:req.params.id})
+})
+
+
 //ruta para los hilos ordenados por recientes
 
 router.get("/nuevo_hilo",(req,res) => {
@@ -38,6 +65,8 @@ router.post("/nuevo_hilo",async (req,res) => {
     console.log(hilo)
 
     await pool.query("insert into hilos set ?",[hilo])
+
+    await pool.query("update users set mensajes = mensajes+1 where id=?",[req.user.id])
     
     res.redirect("/")
 
