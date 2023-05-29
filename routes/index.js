@@ -8,8 +8,39 @@ const encrypt = require("../config/encrypt")
 
 const router = Router()
 
-router.get("/",(req,res) => {
-    res.render("main")
+//ruta para los hilos ordenados por recientes
+//ya que por defecto asi será
+router.get("/",async(req,res) => {
+
+
+    //consulta para sacar los hilos
+
+    const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id order by h.fecha_creacion desc")
+
+    res.render("main",{results})
+})
+
+//ruta para los hilos ordenados por recientes
+
+router.get("/nuevo_hilo",(req,res) => {
+    res.render("nuevo_hilo")
+})
+
+router.post("/nuevo_hilo",async (req,res) => {
+    console.log(req.body)
+
+    let hilo = {
+        titulo:req.body.titulo,
+        texto:req.body.texto,
+        id_user:req.user.id
+    }
+
+    console.log(hilo)
+
+    await pool.query("insert into hilos set ?",[hilo])
+    
+    res.redirect("/")
+
 })
 
 router.get("/access", (req,res)=>{
@@ -19,6 +50,8 @@ router.get("/access", (req,res)=>{
 router.get("/registro", (req,res)=>{
     res.render("registro.ejs")
 })
+
+
 
 //recogida de datos
 

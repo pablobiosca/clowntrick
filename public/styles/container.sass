@@ -1,0 +1,106 @@
+#menu_hilos
+    border: 2px solid white
+    background: #1a2332
+    height: 15vh
+    position: fixed
+    width: 100%
+    top: 13vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    #agregar_hilo
+        display: flex
+        align-items: center
+
+        width: 80%
+        height: 65%
+        display: flex
+        color: white
+        border: 2px solid red
+        p
+            margin-right: 1rem
+            font-weight: bold
+
+        a
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: 2px
+            text-decoration: none
+            color: black
+            width: 10%
+            background: #9fef00
+            padding: 1rem
+            border: none
+            height:30%
+            font-size: 18px
+            font-weight: bold
+            letter-spacing: .3px
+
+    #menu_hilos2
+        width: 80%
+        height: 35%
+        border: 3px solid green
+        display: flex
+        justify-content: left
+        #info_hilo
+            width: 85%
+            display: flex
+        #stats
+            width: 15%
+            display: flex
+            justify-content: space-evenly
+
+
+    h4
+        color: white
+    
+#padre_hilos
+    background: #1a2332
+    height: auto
+
+    margin-top: 28vh
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    #container_hilos
+        width: 80%
+
+        .hilo
+            color: white
+            width: 100%
+            display: flex
+            margin: 1.5rem 0
+            .user
+                width: 85%
+
+                display: flex
+                align-items: center
+                .user_info
+                    border-bottom: 2px solid #9fef00
+                    // border-left: .5px solid #9fef00
+
+                    // background: #dff1ff8b
+                    padding: .3rem
+                    // border-right: .5px solid #9fef00
+                    width: 20%
+
+                .hilo_titulo
+                    height: 100%
+                    width: 80%
+                    display: flex
+                    align-items: center
+                    padding: 0 .5rem
+                    // background: #dff1ff8b
+                    border-bottom: .5px solid #9fef00
+
+
+            .hilo_info
+                border-bottom: 2px solid #9fef00
+                // border-right: .5px solid #9fef00
+                // background: #dff1ff8b
+                width: 15%
+                display: flex
+                justify-content: space-around
+                align-items: center

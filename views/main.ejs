@@ -14,11 +14,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/container.css">
     <link rel="stylesheet" href="/styles/nav.css">
     <title>clowntrick</title>
 </head>
 <body>
     <%- include('./partials/nav') %>
+
+    <section id="menu_hilos">
+
+        <% if (user) { %>
+            <div id="agregar_hilo">
+                <p>Añadir nuevo hilo</p>
+                <a href="/nuevo_hilo">Añadir</a>
+            </div>
+        <% } %>
+
+        <div id="menu_hilos2">
+            <div id="info_hilo">
+                <h4>Temas</h4>
+                <a href="/populares">
+                    <h4>Mas Populares</h4>
+                </a>
+                <a href="/">
+                    <h4>Mas Recientes</h4> 
+                </a>
+            </div>
+
+            <div id="stats">
+                <h4>Respuestas</h4>
+                <h4>Visitas</h4>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="padre_hilos">
+
+        <section id="container_hilos">
+    
+            <% for( let hilo = 0; hilo < results.length; hilo++ ) { %>
+
+                <div class="hilo">
+                    
+                    <div class="user">
+                        <div class="user_info">
+                            <p>@<%= results[hilo].nickname %> </p>
+                            <p>Mensajes : <%= results[hilo].mensajes %></p>
+                        </div>
+                        <div class="hilo_titulo">
+                            <p><%= results[hilo].titulo %></p>
+                        </div>
+                    </div>
+
+                    <div class="hilo_info">
+                        <p><%= results[hilo].views %></p>
+                        <p><%= results[hilo].num_respuestas %></p>
+                    </div>
+    
+                </div>
+
+            <% } %>
+    
+    
+        </section>
+
+    </section>
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
     <script src="/scripts/client_socket.js"></script>

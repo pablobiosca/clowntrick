@@ -24,7 +24,7 @@ passport.use("local.signup", new localstrategy({
     password = await encrypt.encriptasion(password)
     //como hemos propagado el req,podemos acceder a mas datos
     //para la creacion del objeto completo
-    const {email,lastname,phone} = req.body
+    const {email} = req.body
     
     const new_user = {
         nickname:name,
@@ -40,7 +40,7 @@ passport.use("local.signup", new localstrategy({
     
     console.log(result.insertId)
     
-    new_user.id_user = result.insertId
+    new_user.id = result.insertId
     
     return done(null, new_user)
 }))
