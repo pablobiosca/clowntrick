@@ -54,8 +54,11 @@
 
     </section>
 
-    <section id="padre_hilos">
-
+    <% if (user) { %>
+        <section id="padre_hilos">
+    <% }else{ %>
+        <section id="padre_hilos" style="margin-top: 20vh;">
+    <% } %>
         <section id="container_hilos">
     
             <% for( let hilo = 0; hilo < results.length; hilo++ ) { %>
@@ -67,9 +70,9 @@
                             <p>@<%= results[hilo].nickname %> </p>
                             <p>Mensajes : <%= results[hilo].mensajes %></p>
                         </div>
-                        <div class="hilo_titulo">
+                        <a href="/hilo/<%= results[hilo].id  %>" class="hilo_titulo">
                             <p><%= results[hilo].titulo %></p>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="hilo_info">

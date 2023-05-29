@@ -74,7 +74,7 @@
 #padre_hilos {
   background: #1a2332;
   height: auto;
-  margin-top: 28vh;
+  margin-top: 25vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -100,10 +100,13 @@
   width: 20%;
 }
 #padre_hilos #container_hilos .hilo .user .hilo_titulo {
+  cursor: pointer;
+  text-decoration: none;
   height: 100%;
   width: 80%;
   display: flex;
   align-items: center;
+  color: white;
   padding: 0 0.5rem;
   border-bottom: 0.5px solid #9fef00;
 }
@@ -113,7 +116,4 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-#padre_hilos #container_hilos .hilo .hilo_info p {
-  padding: 0.3rem;
 }/*# sourceMappingURL=container.css.map */
