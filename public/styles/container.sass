@@ -1,5 +1,5 @@
 #menu_hilos
-    border: 2px solid white
+    // border: 2px solid white
     background: #1a2332
     height: 15vh
     position: fixed
@@ -8,6 +8,8 @@
     display: flex
     flex-direction: column
     align-items: center
+    justify-content: start
+    padding-bottom: 1.5rem
     #agregar_hilo
         display: flex
         align-items: center
@@ -16,10 +18,14 @@
         height: 65%
         display: flex
         color: white
-        border: 2px solid red
+        // border: 2px solid red
         p
             margin-right: 1rem
             font-weight: bold
+            border-top: 1px solid #9fef00
+            border-left: 1px solid #9fef00
+            padding: .3rem 0 0 .3rem
+
 
         a
             display: flex
@@ -39,19 +45,27 @@
 
     #menu_hilos2
         width: 80%
-        height: 35%
-        border: 3px solid green
+        height: 100%
+        padding: .5rem 0
+        // border: 1px solid yellow
         display: flex
         justify-content: left
         #info_hilo
             width: 85%
             display: flex
+            div
+                width: 50%
+                display: flex
+                justify-content: space-between
         #stats
             width: 15%
             display: flex
             justify-content: space-evenly
 
-
+    a
+        cursor: pointer
+        text-decoration: none
+        border-bottom: 1px solid #9fef00
     h4
         color: white
     
@@ -104,3 +118,5 @@
                 display: flex
                 justify-content: space-around
                 align-items: center
+                p
+                    padding: .3rem

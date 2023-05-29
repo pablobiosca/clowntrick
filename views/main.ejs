@@ -21,17 +21,21 @@
 <body>
     <%- include('./partials/nav') %>
 
-    <section id="menu_hilos">
-
-        <% if (user) { %>
-            <div id="agregar_hilo">
-                <p>Añadir nuevo hilo</p>
-                <a href="/nuevo_hilo">Añadir</a>
-            </div>
-        <% } %>
-
-        <div id="menu_hilos2">
-            <div id="info_hilo">
+    <% if (user) { %>
+        <section id="menu_hilos">
+    <% }else{ %>
+        <section id="menu_hilos" style="height: 10vh;">
+    <% } %>
+    
+    <% if (user) { %>
+        <div id="agregar_hilo">
+            <p>Añadir nuevo hilo</p>
+            <a href="/nuevo_hilo">Añadir</a>
+        </div>
+    <% } %>
+    <div id="menu_hilos2">
+        <div id="info_hilo">
+            <div>
                 <h4>Temas</h4>
                 <a href="/populares">
                     <h4>Mas Populares</h4>
@@ -40,6 +44,7 @@
                     <h4>Mas Recientes</h4> 
                 </a>
             </div>
+        </div>
 
             <div id="stats">
                 <h4>Respuestas</h4>
