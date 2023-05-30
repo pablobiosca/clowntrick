@@ -116,6 +116,11 @@
 #padre_hilos #container_hilos .hilo .user .hilo_titulo .hilon {
   background: rgba(159, 239, 0, 0.3058823529);
 }
+#padre_hilos #container_hilos .hilo .user .hilo_titulo .hilon .fecha {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
 #padre_hilos #container_hilos .hilo .user .hilo_titulo div {
   background: #464F60;
   padding: 1rem;
@@ -128,4 +133,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.fecha {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }/*# sourceMappingURL=container_2.css.map */

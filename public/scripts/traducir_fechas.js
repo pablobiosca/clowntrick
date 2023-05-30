@@ -22,22 +22,21 @@ fechaElements.forEach(function (element) {
         const años = Math.floor(meses / 12);
 
         if (años > 0) {
-            return `hace ${años} ${años === 1 ? 'año' : 'años'}`;
+            return `Hace ${años} ${años === 1 ? 'año' : 'años'}`;
         } else if (meses > 0) {
-            return `hace ${meses} ${meses === 1 ? 'mes' : 'meses'}`;
+            return `Hace ${meses} ${meses === 1 ? 'mes' : 'meses'}`;
         } else if (dias > 0) {
-            return `hace ${dias} ${dias === 1 ? 'día' : 'días'}`;
+            return `Hace ${dias} ${dias === 1 ? 'día' : 'días'}`;
         } else if (horas > 0) {
-            return `hace ${horas} ${horas === 1 ? 'hora' : 'horas'}`;
+            return `Hace ${horas} ${horas === 1 ? 'hora' : 'horas'}`;
         } else if (minutos > 0) {
-            return `hace ${minutos} ${minutos === 1 ? 'minuto' : 'minutos'}`;
+            return `Hace ${minutos} ${minutos === 1 ? 'minuto' : 'minutos'}`;
         } else {
-            return 'hace un momento';
+            return 'Hace un momento';
         }
     }
 
     const formatoRelativo = obtenerFormatoRelativo(diferencia);
 
     element.textContent = formatoRelativo;
-    
 });

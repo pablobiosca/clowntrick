@@ -35,8 +35,8 @@
     <% } %>
     <div id="menu_hilos2">
         <div id="info_hilo">
+            <span></span>
             <div>
-                <h4>Temas</h4>
                 <a href="/populares">
                     <h4>Mas Populares</h4>
                 </a>
@@ -50,7 +50,7 @@
                 <h4>Respuestas</h4>
                 <h4>Visitas</h4>
             </div>
-        </div>
+    </div>
 
     </section>
 
@@ -68,10 +68,10 @@
                     <div class="user">
                         <div class="user_info">
                             <p>@<%= results[hilo].nickname %> </p>
-                            <p>Participaciones : <%= results[hilo].mensajes %></p>
+                            <p class="participaciones">Participaciones : <%= results[hilo].mensajes %></p>
                         </div>
                         <a href="/hilo/<%= results[hilo].id  %>" class="hilo_titulo">
-                            <p><%= results[hilo].titulo %></p>
+                            <p class="titulo"><%= results[hilo].titulo %></p>
                             <p class="fecha"><%= results[hilo].hilo_creacion %></p>
                         </a>
                     </div>

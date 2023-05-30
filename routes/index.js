@@ -40,7 +40,7 @@ router.get("/hilo/:id",async(req,res) => {
 
     const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,u.id as id_user,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and h.id=?",[id_hilo])
     
-    const [respuestas_hilo] = await pool.query("select u.nickname,u.mensajes,u.id,r.texto from users u inner join replys r on r.id_user = u.id inner join hilos h on r.id_hilo=h.id where h.id=? order by r.fecha_creacion desc",[id_hilo])
+    const [respuestas_hilo] = await pool.query("select u.nickname,u.mensajes,u.id,r.texto,r.fecha_creacion as reply_creacion from users u inner join replys r on r.id_user = u.id inner join hilos h on r.id_hilo=h.id where h.id=? order by r.fecha_creacion desc",[id_hilo])
 
     console.log(results)
     console.log(respuestas_hilo)
