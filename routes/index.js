@@ -18,6 +18,7 @@ router.get("/",async(req,res) => {
     const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id order by h.fecha_creacion desc")
 
     res.render("main",{results})
+
 })
 
 router.get("/populares",async(req,res) => {
@@ -80,19 +81,6 @@ router.get("/nuevo_hilo",(req,res) => {
 })
 
 router.post("/nuevo_hilo",async (req,res) => {
-    console.log(req.body)
-
-    let hilo = {
-        titulo:req.body.titulo,
-        texto:req.body.texto,
-        id_user:req.user.id
-    }
-
-    console.log(hilo)
-
-    await pool.query("insert into hilos set ?",[hilo])
-
-    await pool.query("update users set mensajes = mensajes+1 where id=?",[req.user.id])
     
     res.redirect("/")
 

@@ -21,16 +21,19 @@
 
     <section id="container_hilo">
         <form action="/nuevo_hilo" method="post">
+            <input id="info_crack" style="display: none;" value="<%=user.id%>"></input>
             <div>
                 <p>Construye tu hilo</p>
             </div>
-            <input type="text" name="titulo" placeholder="Titulo" required>
-            <textarea name="texto" rows="13" placeholder="Descripcion" required></textarea>
+            <input type="text" id="titulo" name="titulo" placeholder="Titulo" required>
+            <textarea name="texto" id="texto" rows="13" placeholder="Descripcion" required></textarea>
 
-            <button type="submit">Añadir Hilo</button>
+            <button id="socket_client" type="submit">Añadir Hilo</button>
         </form>
 
     </section>
 
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script src="/scripts/client_socket.js"></script>
 </body>
 </html>
