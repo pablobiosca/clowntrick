@@ -1,6 +1,6 @@
 const passport = require("passport")
 const localstrategy = require("passport-local").Strategy
-
+const nodemailer = require("nodemailer")
 //manejador de bdatos en forma de pisicina
 //mejor rendimiento al reultilizar conexiones ya establecidas
 const pool = require("./connection.js")
@@ -41,6 +41,114 @@ passport.use("local.signup", new localstrategy({
     console.log(result.insertId)
     
     new_user.id = result.insertId
+
+    // transportador mediante SMTP
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "fary.torito.66@gmail.com",
+            pass: process.env.EMAIL,
+        }
+    });
+    
+    let info = await transporter.sendMail({
+        from: email + ' <fary.torito.66@gmail.com>',
+        to: email,
+        subject: `¡Bienvenido ${name}!`,
+        html: `<!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Bienvenido al Foro de Ciberseguridad</title>
+          <style>
+            /* Estilos generales */
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #f1f1f1;
+            }
+        
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #fff;
+              border-radius: 5px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+        
+            h1 {
+              color: #444;
+              margin-bottom: 20px;
+            }
+        
+            p {
+              color: #777;
+              margin-bottom: 20px;
+            }
+        
+            .button {
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #9fef00;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 5px;
+            }
+        
+            /* Estilos específicos */
+            .header {
+              text-align: center;
+              margin-bottom: 30px;
+            }
+        
+            .logo {
+              width: 80px;
+            }
+        
+            .welcome-message {
+              font-size: 24px;
+              color: #333;
+              margin-bottom: 30px;
+              text-align: center;
+            }
+        
+            .instructions {
+              margin-bottom: 30px;
+            }
+        
+            .footer {
+              text-align: center;
+            }
+        
+            .footer p {
+              color: #888;
+              font-size: 12px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <img src="https://www.olympusweb.com/wp-content/uploads/2023/01/white-hat.png" alt="Logo" class="logo">
+              <h1>Bienvenido a ClownTrick, ${name}</h1>
+            </div>
+            <p class="welcome-message">¡Gracias por unirte a nuestra comunidad!</p>
+            <p class="instructions">Aquí encontrarás información, consejos y discusiones sobre ciberseguridad.</p>
+            <p class="instructions">¡Comienza explorando los hilos y participando en las conversaciones!</p>
+            <p class="instructions">Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.</p>
+            <p class="instructions">¡Disfruta tu experiencia en el foro!</p>
+            <a style="color:blue;" href="https://clowntrickkk.onrender.com/"><p class="instructions">Ir al foro</p></a>
+            <div class="footer">
+              <p>No respondas a este correo. Para contactarnos, visita nuestro sitio web.</p>
+            </div>
+          </div>
+        </body>
+        </html>`,
+      });
+    
+    console.log("Message sent: ", info.messageId);
     
     return done(null, new_user)
 }))
