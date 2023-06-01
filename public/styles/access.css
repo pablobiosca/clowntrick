@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .reg {
   height: 70% !important;
 }
@@ -181,4 +185,30 @@
 }
 #container_hilo #extra a:hover {
   opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  #container {
+    width: 100% !important;
+  }
+  #container form {
+    width: 80%;
+  }
+  #extra {
+    width: 80% !important;
+  }
+  #extra p {
+    font-size: 13px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #container {
+    width: 100% !important;
+  }
+  #container form {
+    width: 80%;
+  }
+  #extra {
+    width: 80% !important;
+  }
 }/*# sourceMappingURL=access.css.map */

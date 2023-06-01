@@ -160,7 +160,7 @@
     font-size: 8px !important;
   }
   #container_hilos .hilo_titulo .titulo {
-    padding: 0 0 0 0.5rem !important;
+    padding: 0 0 0 0.7rem !important;
     width: 75%;
   }
   #container_hilos .participaciones {
@@ -205,5 +205,10 @@
   #menu_hilos2 #stats h4 {
     font-size: 9px !important;
     margin: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #info_hilo div {
+    width: 60% !important;
   }
 }/*# sourceMappingURL=container.css.map */

@@ -37,8 +37,9 @@ header
             letter-spacing: 1px
             font-size: 17px
             @include flex
+            justify-content: left
             width: 100%
-            padding: 1rem
+            padding: 1rem 0
         h6
             color: white
             font-size: 10px
@@ -115,17 +116,31 @@ header
             margin: .8rem 0 0 .5rem
             width: 45% !important
 
-// @media (max-width: 768px)
-//     header
-//         padding: 1rem !important
-//         border: 1px solid yellow
-//     #icon
-//         border: 1px solid white
-//         width: 60% !important
-//         img
-//             width: 20% !important
-//             height: 70% !important
-//         h1
-//             font-size: 15px !important
-//     .links
-//         width: 30% !important
+@media (min-width: 768px) and (max-width: 1023px)
+    header
+        padding: 0 3rem !important
+    #icon
+        width: 75% !important
+        img
+            width: 10% !important
+            height: 30% !important
+        h1
+            font-size: 15px !important
+    .links
+        width: 30% !important
+        height: 20% !important
+    #user
+        width: 25% !important
+        div
+            align-items: flex-start !important
+            justify-content: left !important
+            padding-top: .5rem
+        h3
+            justify-content: left !important
+            padding-left: 0 !important
+            font-size: 15px !important
+        h6
+            font-size: 12px !important
+        img
+            margin: .8rem 0 0 .5rem
+            width: 45% !important  

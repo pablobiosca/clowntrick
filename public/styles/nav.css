@@ -35,8 +35,9 @@ header #user h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: left;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 header #user h6 {
   color: white;
@@ -123,6 +124,45 @@ header #icon span {
   }
   #user h6 {
     font-size: 9px !important;
+  }
+  #user img {
+    margin: 0.8rem 0 0 0.5rem;
+    width: 45% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    padding: 0 3rem !important;
+  }
+  #icon {
+    width: 75% !important;
+  }
+  #icon img {
+    width: 10% !important;
+    height: 30% !important;
+  }
+  #icon h1 {
+    font-size: 15px !important;
+  }
+  .links {
+    width: 30% !important;
+    height: 20% !important;
+  }
+  #user {
+    width: 25% !important;
+  }
+  #user div {
+    align-items: flex-start !important;
+    justify-content: left !important;
+    padding-top: 0.5rem;
+  }
+  #user h3 {
+    justify-content: left !important;
+    padding-left: 0 !important;
+    font-size: 15px !important;
+  }
+  #user h6 {
+    font-size: 12px !important;
   }
   #user img {
     margin: 0.8rem 0 0 0.5rem;

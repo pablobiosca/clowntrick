@@ -141,31 +141,40 @@
 
 
 @media (max-width: 768px)
-    h6
-        font-size: 5px !important
     #menu_hilos
-        height: 10vh
+        height: 5vh
     #padre_hilos
-        margin-top: 17vh
+        margin-top: 16vh
     #container_hilos
-        // border: 1px solid white
         width: 100% !important
-        display: flex !important
-        flex-direction: column
-
-        justify-content: center
-        align-items: center
         .hilo
-            // border: 1px solid yellow
-            padding-left: 1.2rem
+            width: 100% !important
+            justify-content: center !important
+            .user
+                width: 95% !important
+        .user_info
+            // justify-content: left !important
+            padding: 0 0 .3rem .3rem !important
+            .nick
+                font-size: 10px !important
+            p
+                font-size: 7px !important
         .hilo_titulo
-            padding: 0 .2rem !important
+            padding: 0 .1rem !important
+            .fecha
+                margin-top: .7rem
+                // border: 1px solid white
+                font-size: 8px !important
+            .titulo
+                // margin: 0 1rem 0 .1rem
+                padding: 0 0 0 .7rem !important
+                width: 75%
+                // border: 1px solid white
         .participaciones
-            font-size: 5px !important
+            font-size: 6px !important
         p
-            font-size: 7px !important
-    #menu_hilos
-        height: 7vh
+            font-size: 10.5px !important
+
     #agregar_hilo
         // border: 1px solid yellow
         width: 95% !important
@@ -177,4 +186,53 @@
         a
             width: 20% !important
             font-size: 10px !important
+            padding: .7rem 0 !important
+
+@media (min-width: 768px) and (max-width: 1023px)
+    #menu_hilos
+        height: 5vh
+    #padre_hilos
+        margin-top: 16vh
+    #container_hilos
+        width: 100% !important
+        .hilo
+            width: 100% !important
+            justify-content: center !important
+            .user
+                width: 95% !important
+        .user_info
+            // justify-content: left !important
+            padding: 0 0 .3rem .3rem !important
+            .nick
+                font-size: 17px !important
+            p
+                font-size: 14px !important
+        .hilo_titulo
+            padding: 0 .1rem !important
+            .fecha
+                margin-top: .7rem
+                // border: 1px solid white
+                font-size: 10px !important
+            .titulo
+                // margin: 0 1rem 0 .1rem
+                padding: 0 0 0 .7rem !important
+                width: 75%
+                // border: 1px solid white
+        .participaciones
+            font-size: 6px !important
+        p
+            font-size: 16px !important
+
+    #agregar_hilo
+        // border: 1px solid yellow
+        margin-top: 1rem
+        width: 95% !important
+        height: 40% !important
+
+        p
+            width: 30%
+            font-size: 16px !important
+        a
+            width: 20% !important
+            font-size: 16px !important
             padding: .7rem 0 !important

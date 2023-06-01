@@ -32,4 +32,35 @@ header #icon h1 {
 header #icon span {
   color: #9fef00;
   margin: 0 0.1rem;
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 0.5rem;
+  }
+  #icon {
+    width: 100% !important;
+  }
+  #icon img {
+    width: 15% !important;
+    height: 50% !important;
+  }
+  #icon h1 {
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    padding: 0.8rem;
+  }
+  #icon {
+    width: 100% !important;
+  }
+  #icon img {
+    width: 8% !important;
+    height: 30% !important;
+  }
+  #icon h1 {
+    font-size: 22px;
+  }
 }/*# sourceMappingURL=navaccess.css.map */
