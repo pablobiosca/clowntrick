@@ -200,6 +200,9 @@ a {
   #extra p {
     font-size: 13px !important;
   }
+  #container_hilo form {
+    width: 80% !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   #container {
@@ -210,5 +213,8 @@ a {
   }
   #extra {
     width: 80% !important;
+  }
+  #container_hilo form {
+    width: 70% !important;
   }
 }/*# sourceMappingURL=access.css.map */
