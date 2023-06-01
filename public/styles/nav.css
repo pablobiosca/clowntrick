@@ -90,4 +90,41 @@ header #icon h1 {
 header #icon span {
   color: #9fef00;
   margin: 0 0.1rem;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem !important;
+  }
+  #icon {
+    width: 75% !important;
+  }
+  #icon img {
+    width: 20% !important;
+    height: 70% !important;
+  }
+  #icon h1 {
+    font-size: 15px !important;
+  }
+  .links {
+    width: 30% !important;
+  }
+  #user {
+    width: 45% !important;
+  }
+  #user div {
+    align-items: flex-start !important;
+    padding-top: 0.5rem;
+  }
+  #user h3 {
+    padding-left: 0 !important;
+    font-size: 12px !important;
+  }
+  #user h6 {
+    font-size: 9px !important;
+  }
+  #user img {
+    margin: 0.8rem 0 0 0.5rem;
+    width: 45% !important;
+  }
 }/*# sourceMappingURL=nav.css.map */

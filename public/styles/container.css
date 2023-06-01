@@ -133,4 +133,54 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  #menu_hilos {
+    height: 10vh;
+  }
+  #padre_hilos {
+    margin-top: 20vh;
+  }
+  #container_hilos {
+    width: 95% !important;
+  }
+  #container_hilos .hilo_titulo {
+    padding: 0 0.2rem !important;
+  }
+  #container_hilos .participaciones {
+    font-size: 5px !important;
+  }
+  #container_hilos p {
+    font-size: 7px !important;
+  }
+  #agregar_hilo {
+    width: 95% !important;
+    height: 40% !important;
+  }
+  #agregar_hilo p {
+    width: 30%;
+    font-size: 10px;
+  }
+  #agregar_hilo a {
+    width: 20% !important;
+    font-size: 10px !important;
+    padding: 0.7rem 0 !important;
+  }
+  #menu_hilos2 {
+    width: 95% !important;
+    height: 50% !important;
+  }
+  #menu_hilos2 a {
+    width: 40%;
+  }
+  #menu_hilos2 h4 {
+    font-size: 8px !important;
+  }
+  #menu_hilos2 #info_hilo div {
+    width: 60% !important;
+  }
+  #menu_hilos2 #stats h4 {
+    font-size: 5px !important;
+  }
 }/*# sourceMappingURL=container.css.map */
