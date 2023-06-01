@@ -27,6 +27,10 @@ header #user div {
   flex-direction: column;
   align-items: center;
 }
+header #user div a {
+  width: 100%;
+  text-decoration: none;
+}
 header #user h3 {
   height: 10px;
   color: white;

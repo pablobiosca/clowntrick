@@ -8,8 +8,10 @@
     <% if (user) { %>
         <div id="user">
             <div>
-                <h3><%= user.nickname %></h3>
-                <h6>Participaciones : <%= user.mensajes %></h6>
+                <a href="/mishilos">
+                    <h3><%= user.nickname %></h3>
+                    <h6>Participaciones : <%= user.mensajes %></h6>
+                </a>
             </div>
             <a href="/logout">
                 <img src="/images/logout.png">
