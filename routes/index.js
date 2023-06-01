@@ -17,7 +17,9 @@ router.get("/",async(req,res) => {
 
     const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id order by h.fecha_creacion desc")
 
-    res.render("main",{results})
+    //tiene menos gasto un booleano que un strign que indique la seccion 
+    // ja ja ja ...no tiene gracia
+    res.render("main",{results,seccion:true})
 
 })
 
@@ -28,7 +30,7 @@ router.get("/populares",async(req,res) => {
 
     const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id order by h.views desc")
 
-    res.render("main",{results})
+    res.render("main",{results,seccion:false})
 })
 
 //ruta para las respuestas a un hilo

@@ -37,12 +37,24 @@
         <div id="info_hilo">
             <span></span>
             <div>
-                <a href="/populares">
-                    <h4>Mas Populares</h4>
-                </a>
-                <a href="/">
-                    <h4>Mas Recientes</h4> 
-                </a>
+                <% if (seccion != true) { %>
+                    <a style="border: none;" href="/">
+                        <h4>Mas Recientes</h4> 
+                    </a>                 
+                <% }else{ %>
+                    <a href="/">
+                        <h4>Mas Recientes</h4> 
+                    </a>
+                <% } %>
+                <% if (seccion) { %>
+                    <a style="border: none;" href="/populares">
+                        <h4>Mas Populares</h4>
+                    </a>
+                <% }else{ %>
+                    <a href="/populares">
+                        <h4>Mas Populares</h4>
+                    </a>
+                <% } %>
             </div>
         </div>
 
