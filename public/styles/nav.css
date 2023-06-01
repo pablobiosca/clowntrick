@@ -101,13 +101,14 @@ header #icon span {
   }
   #icon img {
     width: 20% !important;
-    height: 70% !important;
+    height: 50% !important;
   }
   #icon h1 {
     font-size: 15px !important;
   }
   .links {
     width: 30% !important;
+    height: 20% !important;
   }
   #user {
     width: 45% !important;
