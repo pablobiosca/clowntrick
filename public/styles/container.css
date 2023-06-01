@@ -145,14 +145,29 @@
   #container_hilos {
     width: 95% !important;
   }
+  #container_hilos .user_info {
+    padding: 0 0 0.3rem 0.3rem !important;
+  }
   #container_hilos .hilo_titulo {
-    padding: 0 0.2rem !important;
+    padding: 0 0.1rem !important;
+  }
+  #container_hilos .hilo_titulo .fecha {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    font-size: 8px !important;
+  }
+  #container_hilos .hilo_titulo .titulo {
+    padding: 0 0 0 0.5rem !important;
+    width: 75%;
   }
   #container_hilos .participaciones {
-    font-size: 5px !important;
+    font-size: 6px !important;
   }
   #container_hilos p {
-    font-size: 7px !important;
+    font-size: 10.5px !important;
   }
   #agregar_hilo {
     width: 95% !important;
@@ -175,12 +190,20 @@
     width: 40%;
   }
   #menu_hilos2 h4 {
-    font-size: 8px !important;
+    font-size: 10px !important;
   }
   #menu_hilos2 #info_hilo div {
     width: 60% !important;
   }
+  #menu_hilos2 #stats {
+    margin-top: 1.8rem;
+    width: 25% !important;
+  }
+  #menu_hilos2 #stats #ress {
+    padding-right: 0.3rem;
+  }
   #menu_hilos2 #stats h4 {
-    font-size: 5px !important;
+    font-size: 9px !important;
+    margin: 0;
   }
 }/*# sourceMappingURL=container.css.map */
