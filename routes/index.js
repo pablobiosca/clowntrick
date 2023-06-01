@@ -96,7 +96,24 @@ router.get("/registro", (req,res)=>{
     res.render("registro.ejs")
 })
 
+router.get("/mishilos", async(req,res)=>{
 
+    const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and u.id = ? order by h.fecha_creacion desc",[req.user.id])
+
+    res.render("mishilos",{results})
+})
+
+router.get("/delete/:id", async(req,res)=>{
+
+    console.log(req.params)
+
+    let hilo_deleteadojaja = req.params.id
+
+    await pool.query("delete from hilos where id = ?",[hilo_deleteadojaja])
+
+    res.redirect("/mishilos")
+    
+})
 
 //recogida de datos
 
