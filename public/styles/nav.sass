@@ -18,34 +18,36 @@ header
     top: 0%
     width: 100% 
     #user
+        // border: 1px solid white
         display: flex
-        justify-content: right
+        justify-content: space-between
         align-items: center
-        width: 11%
+        width: 14%
+        div
+
+            // border: 2px solid green
+            display: flex
+            flex-direction: column
+            align-items: center
+        
         h3
-            margin-right: 1.5rem
+
+            height: 10px
             color: white
             letter-spacing: 1px
-            font-size: 15px
+            font-size: 17px
+            @include flex
+            width: 100%
+            padding: 1rem
+        h6
+            color: white
+            font-size: 10px
         a
             height: 100%
             width: 30%
         img
             width: 60%
             height: 60%
-
-
-    h3
-        border-radius: 2px
-        text-decoration: none
-        color: black
-        @include flex
-        width: 10%
-        padding: 1rem
-        border: none
-        font-size: 18px
-        font-weight: bold
-        letter-spacing: .3px
 
 
     display: flex
