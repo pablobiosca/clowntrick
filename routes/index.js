@@ -8,6 +8,8 @@ const encrypt = require("../config/encrypt")
 
 const router = Router()
 
+const {isloggedin,isnotelogged} = require("../config/securizacion")
+
 //ruta para los hilos ordenados por recientes
 //ya que por defecto asi será
 router.get("/",async(req,res) => {
@@ -53,7 +55,7 @@ router.get("/hilo/:id",async(req,res) => {
 
 //ruta para agregar una respuesta a hilo
 
-router.get("/responder/:id",(req,res) => {
+router.get("/responder/:id",isloggedin,(req,res) => {
     console.log(req.params)
 
     res.render("nueva_respuesta",{id:req.params.id})
@@ -96,7 +98,7 @@ router.get("/registro", (req,res)=>{
     res.render("registro.ejs")
 })
 
-router.get("/mishilos", async(req,res)=>{
+router.get("/mishilos", isloggedin ,async(req,res)=>{
 
     const [results] = await pool.query("select u.nickname,u.fecha_creacion as user_creacion,u.mensajes,h.id,h.titulo,h.texto,h.views,h.fecha_creacion as hilo_creacion,(SELECT COUNT(*) FROM replys WHERE id_hilo = h.id) as num_respuestas from users u inner join hilos h where h.id_user = u.id and u.id = ? order by h.fecha_creacion desc",[req.user.id])
 
@@ -112,7 +114,7 @@ router.get("/delete/:id", async(req,res)=>{
     await pool.query("delete from hilos where id = ?",[hilo_deleteadojaja])
 
     res.redirect("/mishilos")
-    
+
 })
 
 //recogida de datos
