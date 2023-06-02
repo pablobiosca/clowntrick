@@ -27,10 +27,15 @@
         <section id="padre_hilos" style="margin-top: 20vh;">
     <% } %>
         <section id="container_hilos">
-            <div style="width: 95%;display: flex;justify-content: end;padding-top:2rem;">
-                <h5 style="color: white;margin-right: 1.5rem;">Respuestas</h5>
-                <h5 style="color: white;">Visitas</h5>
-            </div>
+            <% if (results.length>0) { %>                
+                <div style="width: 95%;display: flex;justify-content: end;padding-top:2rem;">
+                    <h5 style="color: white;margin-right: 1.5rem;">Respuestas</h5>
+                    <h5 style="color: white;">Visitas</h5>
+                </div>
+            <% } %>
+            <% if (results.length == 0) { %>
+                <h1 style="color:white;margin: 7rem 0 0 7rem;padding-bottom: 5rem;">No tienes hilos creados</h1>
+            <% } %>
             <% for( let hilo = 0; hilo < results.length; hilo++ ) { %>
 
                 <div class="hilo">
