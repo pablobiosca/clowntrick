@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.olympusweb.com/wp-content/uploads/2023/01/white-hat.png" type="image/x-icon">
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,7 @@
 </head>
 <body>
     <%- include('./partials/nav') %>
-
+    <input id="info_hilo" style="display: none;" value="<%=results[0].id%>"></input>
     <% if (user) { %>
         <section id="menu_hilos">
     <% }else{ %>
@@ -91,6 +92,9 @@
         </section>
 
     </section>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script src="/scripts/client_socket_reply.js"></script>
     <script src="/scripts/traducir_fechas.js"></script>
 </body>
 </html>

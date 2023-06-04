@@ -1,28 +1,44 @@
+//librerias y funciones necesarias
+
+//easter egg
+var josefrancisco;
+
+//manejador de errores
 const createError = require('http-errors');
+
 
 const path = require("path")
 const cookieParser = require('cookie-parser');
+
+//prompt logger ,para ver lo que ocurre en el back side
 const logger = require('morgan');
+
+//libreria que nos ayuda con el tema de sesiones de usuario
 const passport = require("passport")
+
+//para que express pueda usar sesiones
 const express_session = require("express-session")
 
+
+//nos traemos una conexión que es reultilizable por todos los modulos que la importen
+//a esto se le denomina piscina de conexiones
 const pool = require("./config/connection")
 
-// const express = require("express");
-// const app = express();
-// const server = require("http").Server(app);
-// const io = require("socket.io")(server);
 
-
-
-//configuracion socket.io back-side
-
+//de paso que creamos el servidor de socket.io,lo conectamos a nuestro server back
+//el cual va a estar listening,el socket claro
 const {app,server,express} = require("./public/scripts/socket_server")
 
+
+//configuramos una instancia para guardar las sesiones en mysql
 const SQL_session = require("express-mysql-session")(express_session)
 
+//para que cada vez que haya una renderizacion ,se deserealice el usuario presente en la
+//cookie 
 require("./config/passport_serialize")
 
+
+//configuracion de guardado de sesiones en mysql utilizando esa famosa pool
 app.use(express_session({
         key:"white_user",
         secret: "welcometojamrock",
@@ -30,7 +46,6 @@ app.use(express_session({
         resave: false,
         saveUninitialized:false
 }))
-    
     
 //localizacion vistas
 app.set("views",path.join(__dirname, "views"))

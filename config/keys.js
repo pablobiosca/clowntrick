@@ -1,5 +1,10 @@
+// Al traernos esta libreria y configurar con esa funcion .config() habilitamos 
+// la lectura de archivos .env
+
 require("dotenv").config()
 
+//exportamos ambas bd ,luego elegiremos cual coger según el tipo de arranque
+//medienate los scripts del package.json
 module.exports = {
     database_dev:{
         host:process.env.DEV_MYSQL_HOST,

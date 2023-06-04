@@ -4,10 +4,14 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const pool = require("../../config/connection")
 
+
+//pendientes de una conexion entrante de cliente
+
 io.on("connection",(socket) => {
     
     console.log("nueva conexion",socket.id)
 
+    //recibimos un mensaje del cliente el cual trae informacion sobre el nuevo hilo que desea postear
     socket.on("client:nuevo_hilo",async(nuevo_hilo)=>{
         console.log("hilo recibido por el cliente")
         console.log(nuevo_hilo)
@@ -17,7 +21,7 @@ io.on("connection",(socket) => {
             console.log("datos integros")
 
 
-
+            //construimos la insercion de nuevo hilo para la bd
             let new_hilo = {
                 titulo:nuevo_hilo.titulo,
                 texto:nuevo_hilo.texto,
@@ -37,9 +41,9 @@ io.on("connection",(socket) => {
             new_hilo.mensajes = info_pasar_socket[0].mensajes
 
             console.log(new_hilo)
-
-
-
+            
+            //con esta función pasamos a todos los clientes conectados,el nuevo hilo para que lo agreguen a su seccion
+            
             io.emit("server:nuevo_hilo",new_hilo)
 
 
@@ -52,5 +56,5 @@ io.on("connection",(socket) => {
 })
 
 
-module.exports = {app,server,express}
+module.exports = {app,server,express,io}
 

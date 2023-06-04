@@ -5,6 +5,9 @@ const text_fill = document.getElementById("text_fill")
 
 const btonsico = document.getElementById("bt_login")
 
+
+//en cuanto de pulse el boton de acceder pasamos al back las credenciales para validar
+
 btonsico.addEventListener("click",async () => {
     
     const email = document.getElementById("email").value
@@ -36,6 +39,10 @@ btonsico.addEventListener("click",async () => {
 
     }catch (e){
         console.log(e)
+
+        //si todo ha salido bien redirigimos a el inicio 
+        //con la cookie ya creada
+
         window.location.href = "/"
     }  
 })
